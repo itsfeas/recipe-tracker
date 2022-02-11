@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 
+import indexRoutes from './routes/indexRoutes';
 import dishRoutes from './routes/dishRoutes';
 import middleware from './controllers/util/middleware';
 require('dotenv').config({ path: 'api.env' });
@@ -19,6 +20,8 @@ console.log(
 /**
  *  App Configuration
  */
+router.set('view engine', 'ejs');
+router.use(express.static('public'));
 router.use(middleware.bodyParser());
 router.use(middleware.consoleDisplay());
 router.use(middleware.corsCall());
@@ -28,9 +31,7 @@ router.use(middleware.errorHandler());
 /**
  * Routes Definitions
  */
-router.use('/', (req:Request, res: Response) => {
-    res.sendFile(__dirname + '/index.html')
-});
+router.use('/', indexRoutes);
 router.use('/api/v1', dishRoutes);
 
 /**

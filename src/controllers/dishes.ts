@@ -11,8 +11,10 @@ import controller from './util/controllerUtil';
  *  @returns success message.
 */
 const addDish = controller((req: Request, res: Response) => {
-    dishRepo.add(req.body);
-    return "success";
+    console.log('attempting to add dish', req.body.name);
+    dishRepo.add(req.body.name);
+    res.status(200);
+    res.redirect("/");
 });
 
 
@@ -22,11 +24,18 @@ const addDish = controller((req: Request, res: Response) => {
  *  @param res HTTP response.
  *  @returns success message.
 */
-const removeDish = controller((req: Request, res: Response) => {
-    dishRepo.remove(req.body.location);
-    return res.status(200).json({
-        item: req.body.location
-    });
+const removeDish = controller(async (req: Request, res: Response) => {
+    const dishId = req.body.id;
+    const dishEntry = await dishRepo.get(dishId);
+    if (dishEntry !== undefined) {
+        dishRepo.remove(dishId);
+        res.redirect("/");
+        res.status(200);
+    }
+    else {
+        console.log('dish does not exist!')
+        res.status(400);
+    }
 });
 
 

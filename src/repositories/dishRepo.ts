@@ -46,6 +46,18 @@ const edit = (id: number, name: string) => {
 };
 
 /**
+ *  Returns one dish
+ *  @param id the id of the dish to select
+ *  @returns dish JSON
+*/
+const get = (id: number) => {
+    const dish: schema.dishes.Whereable = {
+        dish_id: dc.eq(id)
+    };
+    return db.selectOne('dishes', dish).run(connection);
+};
+
+/**
  *  Returns all dishes in the repository
  *  @returns Promise containing all dishes
 */
@@ -53,9 +65,12 @@ const getAll = () => {
     return db.select('dishes', {}).run(connection);
 };
 
+
+
 export {
     add,
     remove,
     edit,
+    get,
     getAll
 }
