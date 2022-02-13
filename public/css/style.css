@@ -1,0 +1,43 @@
+body {
+    text-align: center;
+    padding: auto;
+    background-color: black;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+h1, td {
+    color: white;
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+table {
+    margin: auto;
+    margin-top: 5vh;
+    border: 3px solid white;
+    border-radius: 10px;
+    font-weight: 400;
+}
+
+td {
+    padding: 4px;  
+    border-top: 1px solid white;
+}
+
+input {
+    background-color: transparent;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 4px;
+    color:white;
+}
+
+button {
+    background-color: transparent;
+    color:white;
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 4px 10px 4px 10px;
+}

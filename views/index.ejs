@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pagerduty MVP</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+    <h1>Dishes App</h1>
+    
+    <div class="searches">
+        <input type="text" placeholder="name" name="name" id="dish_name">
+        <button type="submit" onclick=addDish()>Add</button>
+        <input type="text" placeholder="id" name="id" id="dish_id">
+        <button type="submit" onclick=deleteDish()>Delete</button>
+    </div>
+
+    <div class="tables">
+        <table class="dishes">
+            <td style="border-top: 0px; font-weight: 600;">Dish ID</td>
+            <td style="border-top: 0px; font-weight: 600;">Name</td>
+            <% dishes.forEach((dish) => {%>
+                <tr class="dish">
+                    <td>
+                        <%= dish.dish_id %>
+                    </td>
+                    <td>
+                        <%= dish.name %>
+                    </td>
+                </tr>
+            <% }) %>
+        </table>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
