@@ -13,7 +13,7 @@ const searchName = (nameStr: string) => {
     const dish: schema.dishes.Whereable = {
         name: dc.like('%' + nameStr + '%')
     };
-    db.select('dishes', dish).run(connection);
+    return db.select('dishes', dish).run(connection);
 };
 
 /**
@@ -84,5 +84,6 @@ export {
     remove,
     edit,
     get,
-    getAll
+    getAll,
+    searchName
 }

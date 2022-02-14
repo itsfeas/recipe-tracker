@@ -4,6 +4,17 @@ function refreshPage() {
     }, 250);
 }
 
+function searchDish() {
+    let formData = new FormData(document.getElementById("search-dish-form"));
+    const dishName = formData.get('dish_name');
+    console.log('adding dish', dishName);
+    location.href = '/search-dish?' + new URLSearchParams({
+        name: dishName
+    })
+}
+
+
+
 function addDish() {
     let formData = new FormData(document.getElementById("add-dish-form"));
     const dishName = formData.get('dish_name');

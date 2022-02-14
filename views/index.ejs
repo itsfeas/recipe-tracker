@@ -11,6 +11,10 @@
     <h1>Dishes App</h1>
     
     <div class="add-delete">
+        <form id="search-dish-form" name="search-dish-form">
+            <input type="text" placeholder="name" name="dish_name" id="dish_name">
+            <button type="button" onclick=searchDish()>Search</button>
+        </form>
         <form id="add-dish-form" name="add-dish-form">
             <input type="text" placeholder="name" name="dish_name" id="dish_name">
             <button type="button" onclick=addDish()>Add</button>
