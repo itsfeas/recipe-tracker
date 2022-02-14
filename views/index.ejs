@@ -10,11 +10,15 @@
 <body>
     <h1>Dishes App</h1>
     
-    <div class="searches">
-        <input type="text" placeholder="name" name="name" id="dish_name">
-        <button type="submit" onclick=addDish()>Add</button>
-        <input type="text" placeholder="id" name="id" id="dish_id">
-        <button type="submit" onclick=deleteDish()>Delete</button>
+    <div class="add-delete">
+        <form id="add-dish-form" name="add-dish-form">
+            <input type="text" placeholder="name" name="dish_name" id="dish_name">
+            <button type="button" onclick=addDish()>Add</button>
+        </form>
+        <form id="delete-dish-form" name="delete-dish-form">
+            <input type="text" placeholder="dish id" name="dish_id" id="dish_id">
+            <button type="button" onclick=deleteDish()>Delete</button>
+        </form>
     </div>
 
     <div class="tables">
