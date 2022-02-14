@@ -14,7 +14,6 @@ const addDish = controller((req: Request, res: Response) => {
     console.log('attempting to add dish', req.body.name);
     dishRepo.add(req.body.name);
     res.status(200);
-    res.redirect("/");
 });
 
 
@@ -29,7 +28,6 @@ const removeDish = controller(async (req: Request, res: Response) => {
     const dishEntry = await dishRepo.get(dishId);
     if (dishEntry !== undefined) {
         dishRepo.remove(dishId);
-        res.redirect("/");
         res.status(200);
     }
     else {

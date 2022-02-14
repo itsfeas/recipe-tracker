@@ -1,11 +1,12 @@
 function refreshPage() {
     setTimeout(() => {
-        window.location.reload(true);
-    }, 500);
+        window.location.reload();
+    }, 250);
 }
 
 function addDish() {
-    const dishName = document.getElementById("dish_name").value;
+    let formData = new FormData(document.getElementById("add-dish-form"));
+    const dishName = formData.get('dish_name');
     console.log('adding dish', dishName);
     fetch('/api/v1/dish', {
         method: "POST",
@@ -16,13 +17,12 @@ function addDish() {
             "content-type": "application/json"
         })
     })
-    .then(() => {
-        refreshPage();
-    })
+    refreshPage();
 }
 
 function deleteDish() {
-    const dishId = document.getElementById("dish_id").value;
+    let formData = new FormData(document.getElementById("delete-dish-form"));
+    const dishId = formData.get('dish_id');
     console.log('deleting dish', dishId);
     fetch('/api/v1/dish', {
         method: "DELETE",
@@ -33,7 +33,5 @@ function deleteDish() {
             "content-type": "application/json"
         })
     })
-    .then(() => {
-        refreshPage();
-    })
+    refreshPage();
 }
