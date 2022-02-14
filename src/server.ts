@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import path from 'path';
 
 import indexRoutes from './routes/indexRoutes';
 import dishRoutes from './routes/dishRoutes';
@@ -21,6 +22,7 @@ console.log(
  *  App Configuration
  */
 router.set('view engine', 'ejs');
+router.set('views', path.join(__dirname, '../public/views'))
 router.use(express.static('public'));
 router.use(middleware.bodyParser());
 router.use(middleware.consoleDisplay());
