@@ -9,6 +9,18 @@ import connection from './util/connection';
  *  @param name dish name
  *  @returns nothing
 */
+const searchName = (nameStr: string) => {
+    const dish: schema.dishes.Whereable = {
+        name: dc.like('%' + nameStr + '%')
+    };
+    db.select('dishes', dish).run(connection);
+};
+
+/**
+ *  Adds a dish to the dish repository
+ *  @param name dish name
+ *  @returns nothing
+*/
 const add = (name: string) => {
     const dish: schema.dishes.Insertable = {
         name: name

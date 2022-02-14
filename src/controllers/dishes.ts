@@ -5,6 +5,19 @@ import controller from './util/controllerUtil';
 
 
 /**
+ *  Search for a dish.
+ *  @param req HTTP request.
+ *  @param res HTTP response.
+ *  @returns success message.
+*/
+const searchDish = controller((req: Request, res: Response) => {
+    console.log('attempting to add dish', req.body.name);
+    dishRepo.add(req.body.name);
+    res.status(200);
+    res.redirect("/");
+});
+
+/**
  *  Adds a dish.
  *  @param req HTTP request.
  *  @param res HTTP response.
@@ -55,6 +68,7 @@ const getAll = controller(async (req: Request, res: Response) => {
 
 
 export {
+    searchDish,
     addDish,
     removeDish,
     getAll
