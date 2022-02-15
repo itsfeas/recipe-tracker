@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import path from 'path';
 
-import indexRoutes from './routes/indexRoutes';
+import baseRoutes from './routes/baseRoutes';
 import dishRoutes from './routes/dishRoutes';
 import middleware from './controllers/util/middleware';
 require('dotenv').config({ path: 'api.env' });
@@ -33,7 +33,7 @@ router.use(middleware.errorHandler());
 /**
  * Routes Definitions
  */
-router.use('/', indexRoutes);
+router.use('/', baseRoutes);
 router.use('/api/v1', dishRoutes);
 
 /**
