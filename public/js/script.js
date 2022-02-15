@@ -1,9 +1,15 @@
-function refreshPage() {
+/**
+ *  Refreshes the page after a set time
+*/
+function refreshPage(time=250) {
     setTimeout(() => {
         window.location.reload();
-    }, 250);
+    }, time);
 }
 
+/**
+ *  Adds a dish to the dish repository using form data
+*/
 function addDish() {
     let formData = new FormData(document.getElementById("add-dish-form"));
     const dishName = formData.get('dish_name');
@@ -20,6 +26,9 @@ function addDish() {
     refreshPage();
 }
 
+/**
+ *  Deletes a dish from the dish repository using form data
+*/
 function deleteDish() {
     let formData = new FormData(document.getElementById("delete-dish-form"));
     const dishId = formData.get('dish_id');
