@@ -4,14 +4,16 @@ import type * as schema from 'zapatos/schema';
 import connection from './util/connection';
 
 
+
 /**
  *  Adds a dish to the dish repository
  *  @param name dish name
  *  @returns nothing
 */
-const add = (name: string) => {
+const add = (name: string, ingredients: Array<string>) => {
     const dish: schema.dishes.Insertable = {
-        name: name
+        name: name,
+        ingredients: { ingredients: ingredients }
     };
     db.insert('dishes', dish).run(connection);
 };

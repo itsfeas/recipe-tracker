@@ -11,8 +11,25 @@
     <h1>Dishes App</h1>
     
     <div class="add-delete">
+        <form id="check-dish-form" name="check-dish-form">
+            <select name="ingredients" id="ingredients" multiple>
+                <option value="Flour">Flour</option>
+                <option value="Sugar">Sugar</option>
+                <option value="Eggs">Eggs</option>
+                <option value="Salt">Salt</option>
+                <option value="Milk">Milk</option>
+            </select>
+            <button type="button" onclick=checkDish()>Check</button>
+        </form>
         <form id="add-dish-form" name="add-dish-form">
             <input type="text" placeholder="name" name="dish_name" id="dish_name">
+            <select name="ingredients" id="ingredients" multiple>
+                <option value="Flour">Flour</option>
+                <option value="Sugar">Sugar</option>
+                <option value="Eggs">Eggs</option>
+                <option value="Salt">Salt</option>
+                <option value="Milk">Milk</option>
+            </select>
             <button type="button" onclick=addDish()>Add</button>
         </form>
         <form id="delete-dish-form" name="delete-dish-form">
@@ -25,6 +42,7 @@
         <table class="dishes">
             <td style="border-top: 0px; font-weight: 600;">Dish ID</td>
             <td style="border-top: 0px; font-weight: 600;">Name</td>
+            <td style="border-top: 0px; font-weight: 600;">Ingredients</td>
             <% dishes.forEach((dish) => {%>
                 <tr class="dish">
                     <td>
@@ -32,6 +50,9 @@
                     </td>
                     <td>
                         <%= dish.name %>
+                    </td>
+                    <td>
+                        <%= dish.ingredients.ingredients %>
                     </td>
                 </tr>
             <% }) %>

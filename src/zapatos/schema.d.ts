@@ -40,6 +40,12 @@ declare module 'zapatos/schema' {
       * - `NOT NULL`, no default
       */
       name: string;
+      /**
+      * **dishes.ingredients**
+      * - `json` in database
+      * - Nullable, no default
+      */
+      ingredients: db.JSONValue | null;
     }
     export interface JSONSelectable {
       /**
@@ -54,6 +60,12 @@ declare module 'zapatos/schema' {
       * - `NOT NULL`, no default
       */
       name: string;
+      /**
+      * **dishes.ingredients**
+      * - `json` in database
+      * - Nullable, no default
+      */
+      ingredients: db.JSONValue | null;
     }
     export interface Whereable {
       /**
@@ -68,6 +80,12 @@ declare module 'zapatos/schema' {
       * - `NOT NULL`, no default
       */
       name?: string | db.Parameter<string> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, string | db.Parameter<string> | db.SQLFragment | db.ParentColumn>;
+      /**
+      * **dishes.ingredients**
+      * - `json` in database
+      * - Nullable, no default
+      */
+      ingredients?: db.JSONValue | db.Parameter<db.JSONValue> | db.SQLFragment | db.ParentColumn | db.SQLFragment<any, db.JSONValue | db.Parameter<db.JSONValue> | db.SQLFragment | db.ParentColumn>;
     }
     export interface Insertable {
       /**
@@ -82,6 +100,12 @@ declare module 'zapatos/schema' {
       * - `NOT NULL`, no default
       */
       name: string | db.Parameter<string> | db.SQLFragment;
+      /**
+      * **dishes.ingredients**
+      * - `json` in database
+      * - Nullable, no default
+      */
+      ingredients?: db.JSONValue | db.Parameter<db.JSONValue> | null | db.DefaultType | db.SQLFragment;
     }
     export interface Updatable {
       /**
@@ -96,6 +120,12 @@ declare module 'zapatos/schema' {
       * - `NOT NULL`, no default
       */
       name?: string | db.Parameter<string> | db.SQLFragment | db.SQLFragment<any, string | db.Parameter<string> | db.SQLFragment>;
+      /**
+      * **dishes.ingredients**
+      * - `json` in database
+      * - Nullable, no default
+      */
+      ingredients?: db.JSONValue | db.Parameter<db.JSONValue> | null | db.DefaultType | db.SQLFragment | db.SQLFragment<any, db.JSONValue | db.Parameter<db.JSONValue> | null | db.DefaultType | db.SQLFragment>;
     }
     export type UniqueIndex = 'dishes_pkey';
     export type Column = keyof Selectable;
